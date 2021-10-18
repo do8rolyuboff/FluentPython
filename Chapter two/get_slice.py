@@ -14,3 +14,16 @@ ITEM_TOTAL = slice(55, None)
 line_items = invoice.split('\n')[2:]
 for item in line_items:
 	print(item[UNIT_PRICE], item[DESCRIPTION])
+
+
+# Присваивание срезу:
+my_list = list(range(10))
+my_list[2:5] = [20, 30]
+print(my_list)
+del my_list[5:7]
+print(my_list)
+# my_list[2:5] = 100 --> TypeError: can only assign an iterable
+my_list[2:5] = [100]
+print(my_list)
+
+
