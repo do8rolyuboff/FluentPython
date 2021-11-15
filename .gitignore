@@ -131,5 +131,5 @@ dmypy.json
 
 # PyCharm
 .idea
-chapter_two/floats-10M-lines.txt
-chapter_two/floats.bin
+chapter_2/floats-10M-lines.txt
+chapter_2/floats.bin
