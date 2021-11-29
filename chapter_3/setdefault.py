@@ -1,17 +1,45 @@
 import sys
 import re
 
-WORD_RE = re.compile('\w+')
-index = {}
+zen = """
+Дзен Питона, by Tim Peters
+==========================
+Красивое лучше, чем уродливое.
+Явное лучше, чем неявное.
+Простое лучше, чем сложное.
+Сложное лучше, чем запутанное.
+Плоское лучше, чем вложенное.
+Разреженное лучше, чем плотное.
+Читаемость имеет значение.
+Особые случаи не настолько особые, чтобы нарушать правила.
+При этом практичность важнее безупречности.
+Ошибки никогда не должны замалчиваться.
+Если они не замалчиваются явно.
+Встретив двусмысленность, отбрось искушение угадать.
+Должен существовать один и, желательно, только один очевидный способ сделать это.
+Хотя он поначалу может быть и не очевиден, если вы не голландец [^1].
+Сейчас лучше, чем никогда.
+Хотя никогда зачастую лучше, чем прямо сейчас.
+Если реализацию сложно объяснить — идея плоха.
+Если реализацию легко объяснить — идея, возможно, хороша.
+Пространства имён — отличная штука! Будем делать их больше!
+"""
 
-with open(sys.argv[1], encoding='utf-8') as fp:
-	for line_no, line in enumerate(fp, 1):
-		for match in WORD_RE.finditer(line):
+
+def use_get(zen: str) -> None:
+	index = {}
+	for line_no, line in enumerate(zen.split('\n'), 1):
+		for match in re.compile('\w+').finditer(line):
 			word = match.group()
 			column_no = match.start() + 1
 			location = (line_no, column_no)
 			occurrences = index.get(word, [])
 			occurrences.append(location)
 			index[word] = occurrences
-for word in sorted(index, key=str.upper):
-	print(word, index[word])
+
+	for word in sorted(index, key=str.upper):
+		print(word, index[word])
+
+
+if __name__ == '__main__':
+	use_get(zen)
