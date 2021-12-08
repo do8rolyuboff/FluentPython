@@ -33,6 +33,5 @@ def spades_high(card):
 deck = FrenchDeck()
 suit_values = dict(spades=3, hearts=2, diamonds=1, clubs=0)
 
-
 for card in sorted(deck, key=spades_high):
 	print(card)
