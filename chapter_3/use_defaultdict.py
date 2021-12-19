@@ -1,6 +1,5 @@
 """Строит индекс, отображающий слово на список его вхождений"""
 
-import sys
 import re
 import collections
 from use_get import zen
