@@ -10,6 +10,3 @@ found = len(set(needles) & set(haystack))
 print(found)
 found = len(set(needles).intersection(haystack))
 print(found)
-
-s = (1,)
-print(type(s))
